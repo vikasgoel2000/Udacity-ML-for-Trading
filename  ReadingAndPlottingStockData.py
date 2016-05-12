@@ -51,6 +51,12 @@ def test_run5():
     df5['High'].plot()
     plt.show()
     
+# Function to plot two variables    
+def test_run6():
+    df6 = pd.read_csv("data/AAPL.csv")
+    df6[['Close','Adj Close']].plot()
+    plt.show()
+    
 # Main function 
 if __name__ == "__main__":
     test_run()
@@ -58,3 +64,4 @@ if __name__ == "__main__":
     test_run3()
     test_run4()
     test_run5()
+    test_run6()
