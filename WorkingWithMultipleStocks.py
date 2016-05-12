@@ -6,6 +6,7 @@ Created on Thu May 12 18:33:51 2016
 """
 
 import pandas as pd
+import matplotlib.pyplot as plt
 
 def test_run():
     #Define date range
@@ -49,6 +50,9 @@ def test_run():
     
     print df1
     
+def normalize_data(df):
+    return df/ df.ix[0,:]
+       
 def test_run2():
       #Define date range
     start_date = '2010-01-01'
@@ -96,10 +100,29 @@ def test_run2():
     # slice by multiple columns
     print df1[['IBM','GLD']]
     
+    
     #SLice using both row and column
     print df1.ix['2010-03-10':'2010-03-15',['SPY','IBM']] 
 
-
+    # Plot of whole data frame
+    ax = df1.plot(title = "Stock Prices")
+    ax.set_xlabel("Date")
+    ax.set_ylabel("Price")    
+    plt.show()
+    # Plot for Sliced dataframe
+    df2 = df1.ix['2010-03-01':'2010-03-31',['SPY','IBM']] 
+    ax2 = df2.plot(title = "Stock Prices_Sliced")
+    ax2.set_xlabel("Date")
+    ax2.set_ylabel("Price")    
+    plt.show()
+    
+    #Normalization of prices and plotting the data
+    normalized_data = normalize_data(df1)
+    ax3 = normalized_data.plot(title = "Stock Prices")
+    ax3.set_xlabel("Date")
+    ax3.set_ylabel("Price")    
+    plt.show()
+    
     
     
 if __name__ == "__main__":
