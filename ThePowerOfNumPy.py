@@ -85,9 +85,54 @@ def array_elements():
     a[:,3] = [1,2,3,4,5]
     print "Modified element \n", a
     
+def index():
+    a = np.random.rand(5)
+    #access using the list of indices
+    indices = np.array([1,1,2,3])
+    print a
+    print a[indices]
+    
+def boolean():
+    a = np.array([(20,25,10,23,26,31,10,5,0),(0,2,50,20,0,1,28,5,0)])
+    print a
+    
+    mean = a.mean()
+    print mean
+    
+    #masking, return values less than mean
+    print a[a<mean]
+    # replace all these with mean
+    a[a<mean] = mean
+    print a
+    
+def arithmetic():
+    a = np.array([(1,2,3,4,5),(10,20,30,40,50)])
+    print "orignal array /n", a
+    #multiply by 2    
+    print "\n Multiply by 2 \n\n", 2*a 
+    #divide  by 2    
+    print "\n Divide by 2 \n\n", a/2     
+    #divide  by 2.0   
+    print "\n Divide by 2 \n\n", a/2.0
+    
+    b = np.array([(100,200,300,400,500),(1,2,3,4,5)])
+    print "orignal array \n\n", b
+    
+    #Add two array
+    print "\n add a and b \n\n", a+b
+    #mulitply two array, element wise multiplication a[0,0]*b[0,0]    
+    print "\n multiply a and b \n\n", a*b
+    #matrix multiplication
+    c = np.array([(100,200),(1,2)])
+    d = np.array([(100,200),(1,2)])
+    print "\n matrix multiplication of a and b \n\n", np.dot(c,d)    
+    
 if __name__ == "__main__":
     test_run()
     random_numbers()
     array_attributes()
     array_operations()
     array_elements()
+    index()
+    boolean()
+    arithmetic()
