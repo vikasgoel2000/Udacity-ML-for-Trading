@@ -57,9 +57,37 @@ def array_operations():
     print "Minimum of each column:", a.min(axis=0)
     print "Maximum of each row:", a.max(axis=1)
     print "Mean of all elements:", a.mean()
+    b = np.array([2,3,4])    # index of maximum value in 1D array
+    print "Index of maximum value of a row:", b.argmax()    
+    print "Index of minimum value of a row:", b.argmin()    
+
+def array_elements():
+    a = np.random.rand(5,4)
+    print "array:", a
+    #access elements at 3,2
+    element = a[3,2]
+    print element
+    e2 = a[0,1:3] #column slicing zeroth row and 1 & 2 column
+    # last one is exclusive
+    print e2
+    #both row and column 
+    e3 = a[0:2,0:2]
+    print e3
+    #skipping a column
+    print a[:, 0:3:2] # all rows but give value of column 0,1,2 but skip 1 due to size 2 given
+    # m:n:t, skip as the size of t =2 in above case
+    
+    #Assignin values to array elements
+    a[0,0] = 1
+    print "Modified element \n", a   
+    a[0,:]= 2
+    print "Modified element \n", a
+    a[:,3] = [1,2,3,4,5]
+    print "Modified element \n", a
     
 if __name__ == "__main__":
     test_run()
     random_numbers()
     array_attributes()
     array_operations()
+    array_elements()
