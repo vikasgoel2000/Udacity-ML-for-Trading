@@ -6,7 +6,6 @@ Created on Wed Jun 01 22:10:40 2016
 """
 import pandas as pd
 import matplotlib.pyplot as plt
-import matplotlib
 
 def test_run():
        #Define date range
@@ -148,8 +147,8 @@ def bollinger_band():
 def daily_return(df):
     #daily_return = df.copy()
     #daily_return[1:]=(df[1:]/df[:-1].values) -1    
-    #daily_return.ix[0,:] = 0    
     daily_returns = (df/df.shift(1)) -1 #pandas library
+    daily_returns.ix[0,:] = 0        
     return daily_returns
     
 def returns():
