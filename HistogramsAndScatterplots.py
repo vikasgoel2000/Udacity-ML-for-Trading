@@ -8,6 +8,7 @@ Created on Sun Jun 05 18:23:51 2016
 import matplotlib.pyplot as plt
 import os
 import pandas as pd
+import numpy as np
 
 def symbol_to_path(symbol,base_dir="data"):
      return os.path.join(base_dir, "{}.csv".format(str(symbol)))
@@ -90,7 +91,14 @@ def scatter():
     daily_returns = daily_return(df_data)
     
     daily_returns.plot(kind='scatter', x='SPY', y='XOM')
+    beta_XOM,alpha_XOM = np.polyfit(daily_returns['SPY'],daily_returns['XOM'],1)
+    plt.plot(daily_returns['SPY'],beta_XOM*daily_returns['SPY']+alpha_XOM, '-',color='r')    
+    plt.show()    
+    
+    daily_returns.plot(kind='scatter', x='SPY', y='GLD')
     plt.show()
+    
+    
 
 if __name__ == "__main__":
     test_run()
