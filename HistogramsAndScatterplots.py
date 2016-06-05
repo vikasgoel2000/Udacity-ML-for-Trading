@@ -46,6 +46,20 @@ def test_run():
     daily_returns = daily_return(df_data)
     plot(daily_returns)
     
+    #Plot histogram
+    daily_returns.hist() #default bins = 10
+    daily_returns.hist(bins=20)
     
+    #stats
+    mean = daily_returns['SPY'].mean()
+    print "mean=", mean
+    std = daily_returns['SPY'].std()
+    print "std=",std   
+    plt.axvline(mean,color='r',linestyle='dashed',linewidth=5)
+    plt.axvline(std,color='black',linestyle='dashed',linewidth=3)    
+    plt.axvline(-std,color='black',linestyle='dashed',linewidth=3)
+    plt.show()    
+    
+    print daily_returns.kurtosis()
 if __name__ == "__main__":
     test_run()
