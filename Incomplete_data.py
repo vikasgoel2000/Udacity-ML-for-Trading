@@ -26,9 +26,10 @@ def get_data(symbollist, dates):
      return df_final
       
 def test_run():
-    symbols = ['GOOG']
-    start = '2010-01-01'
-    end = '2012-01-01'
+    #symbols = ["PSX","FAKE1","FAKE2"]
+    symbols = ['FAKE2']
+    start = '2005-12-31'
+    end = '2014-12-07'
     idx = pd.date_range(start,end)
     df_data = get_data(symbols,idx)
     df_data.plot()
@@ -39,3 +40,6 @@ def plot(df_data):
     ax.set_xlabel("Date")
     ax.set_ylabel("Price")
     plt.show()
+    
+if __name__ == "__main__":
+    test_run()
