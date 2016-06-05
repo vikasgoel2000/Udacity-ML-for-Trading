@@ -79,6 +79,20 @@ def two_hist():
     plt.legend(loc='upper right')
     plt.show()
 
+def scatter():
+    symbols = ['SPY','XOM','GLD']
+    start = '2009-01-01'
+    end = '2012-12-31'
+    idx = pd.date_range(start,end)
+    df_data = get_data(symbols,idx) 
+    plot(df_data)
+    
+    daily_returns = daily_return(df_data)
+    
+    daily_returns.plot(kind='scatter', x='SPY', y='XOM')
+    plt.show()
+
 if __name__ == "__main__":
     test_run()
     two_hist()
+    scatter()
