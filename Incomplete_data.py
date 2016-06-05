@@ -38,6 +38,18 @@ def test_run():
     df_data.plot()
     plt.show()
     
+def quiz():
+    symbols = ["JAVA","FAKE1","FAKE2"]
+    start = '2005-12-31'
+    end = '2014-12-07'
+    idx = pd.date_range(start,end)
+    df_data = get_data(symbols,idx)
+    #to fill missing data
+    df_data.fillna(method="ffill",inplace="TRUE")
+    df_data.fillna(method="bfill",inplace="TRUE")
+    df_data.plot()
+    plt.show()
+
 def plot(df_data):
     ax = df_data.plot(title="incomplete data",fontsize=2)
     ax.set_xlabel("Date")
@@ -46,3 +58,4 @@ def plot(df_data):
     
 if __name__ == "__main__":
     test_run()
+    quiz()
