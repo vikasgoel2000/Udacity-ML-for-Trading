@@ -32,6 +32,9 @@ def test_run():
     end = '2014-12-07'
     idx = pd.date_range(start,end)
     df_data = get_data(symbols,idx)
+    #to fill missing data
+    df_data.fillna(method="ffill",inplace="TRUE")
+    df_data.fillna(method="bfill",inplace="TRUE")
     df_data.plot()
     plt.show()
     
