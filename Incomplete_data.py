@@ -49,6 +49,9 @@ def quiz():
     df_data.fillna(method="bfill",inplace="TRUE")
     df_data.plot()
     plt.show()
+    
+    #USE FORWARD FILLING FIRST AND BACKWARD FILLING SECOND TO AVOID
+    #TO PEEP IN FUTURE AS MUCH AS YOU CAN
 
 def plot(df_data):
     ax = df_data.plot(title="incomplete data",fontsize=2)
