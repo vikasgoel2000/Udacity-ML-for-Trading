@@ -61,5 +61,24 @@ def test_run():
     plt.show()    
     
     print daily_returns.kurtosis()
+
+def two_hist():
+    symbols = ['SPY','XOM']
+    start = '2009-01-01'
+    end = '2012-12-31'
+    idx = pd.date_range(start,end)
+    df_data = get_data(symbols,idx) 
+    plot(df_data)
+    
+    daily_returns = daily_return(df_data)
+    #plot(daily_returns)
+    
+    #daily_returns.hist(bins=20)
+    daily_returns['SPY'].hist(bins=20,label='SPY')
+    daily_returns['XOM'].hist(bins=20,label='XOM')
+    plt.legend(loc='upper right')
+    plt.show()
+
 if __name__ == "__main__":
     test_run()
+    two_hist()
